@@ -1,4 +1,6 @@
 package exercise;
+
+
 /*
  * 利用递归方法求5!
  */

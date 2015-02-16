@@ -1,4 +1,6 @@
 package exercise;
+
+
 /*
  * 求100之内的素数
  */

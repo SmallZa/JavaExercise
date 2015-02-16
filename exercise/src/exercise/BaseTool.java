@@ -1,5 +1,6 @@
 package exercise;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -349,6 +350,55 @@ public class BaseTool {
 			}
 		}
 		return true;
+	}
+	
+	/**
+	 * @Title: bubbleSort
+	 * @Description: 冒泡排序 
+	 * @return: Object[]   
+	 */
+	public static void bubbleSort(int []list){
+		for(int i=0; i<list.length; i++){
+			for(int j=0; j<list.length-i-1; j++){
+				if(list[j] > list[j+1]){
+					int temp = list[j];
+					list[j] = list[j+1];
+					list[j+1] = temp;
+				}
+			}
+		}
+	}
+	
+	/*
+	 * quickSort调用，选取中轴
+	 */
+	private static int getMiddle(int[] list, int low, int high) {  
+        int tmp = list[low];    //数组的第一个作为中轴  
+        while (low < high) {  
+            while (low < high && list[high] > tmp) {  
+                high--;  
+            }  
+            list[low] = list[high];   //比中轴小的记录移到低端  
+            while (low < high && list[low] < tmp) {  
+                low++;  
+            }  
+            list[high] = list[low];   //比中轴大的记录移到高端  
+        }  
+        list[low] = tmp;              //中轴记录到尾  
+        return low;                   //返回中轴的位置  
+    }  
+
+	/**
+	 * @Title: quickSort
+	 * @Description: 快速排序 
+	 * @return: int[]
+	 */
+	public static void quickSort(int []list, int low, int high){
+		if(low<high){
+			int middle = getMiddle(list, low, high);
+			quickSort(list, low, middle-1);
+			quickSort(list, middle+1, high);	
+		}
 	}
 }
 
